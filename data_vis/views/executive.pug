@@ -1,0 +1,34 @@
+extends layout
+
+block content
+    if !location
+        a(href='/' class="btn-primary p-2 mb-2 col-sm-4 border border-dark") Back to Home Page
+    br
+    br
+    h1= title
+    if location
+        h2 Sensor Reading Metrics In #{location}
+        div Average Sensor Readings: #{avg}
+        div Standard Deviation Sensor Readings: #{std}
+        div Min Sensor Readings: #{min}
+        div Max Sensor Readings: #{max}
+        br
+        a(href='/executive' class="btn-primary p-2 col-sm-4 border border-dark") Back to Global View
+    else
+        h2 Sensor Reading Metrics Across the Globe!
+        div Average Sensor Readings: #{avg}
+        div Standard Deviation Sensor Readings: #{std}
+        div Min Sensor Readings: #{min}
+        div Max Sensor Readings: #{max}
+        br
+        div(class="row")
+            a(href='/executive/1' class="btn-primary p-2 col-sm-4 text-center w-25 border border-dark") Boston
+            a(href='/executive/2' class="btn-primary p-2 col-sm-4 text-center w-25 border border-dark") New York
+            a(href='/executive/3' class="btn-primary p-2 col-sm-4 text-center w-25 border border-dark") Denver
+        br
+        div(class="row")
+            a(href='/executive/4' class="btn-primary p-2 col-sm-4 text-center w-25 border border-dark") Atlanta
+            a(href='/executive/5' class="btn-primary p-2 col-sm-4 text-center w-25 border border-dark") Seattle
+        br
+        
+    

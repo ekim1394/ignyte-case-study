@@ -1,0 +1,47 @@
+extends layout
+
+block content
+    if !location
+        a(href='/' class="btn-primary p-2 mb-2 col-sm-4 border border-dark") Back to Home Page
+    else 
+        a(href='/operations' class="btn-primary p-2 mb-2 col-sm-4 border border-dark") Back to Operations Home
+    br
+    br
+    h1= title
+
+    if machineList
+        h2 Machines In #{location}
+        each val in machineList
+            div(class="row")
+                if val.stats.max < .5
+                    a(href='/operations/' + location_id + '/' + val.id class="btn-primary p-2 col-sm-4 text-center w-25 border border-dark") #{val.id} Metrics
+                else
+                    a(href='/operations/' + location_id + '/' + val.id class="btn-warning p-2 col-sm-4 text-center w-25 border border-dark") #{val.id} Metrics
+            div Average Sensor Readings: #{val.stats.avg}
+            div Standard Deviation Sensor Readings: #{val.stats.std}
+            div Min Sensor Readings: #{val.stats.min}
+            div Max Sensor Readings: #{val.stats.max}
+            br
+
+    else if sensorValues
+        h2 Sensor Metrics for Machine: #{machine_id}
+        each val in sensorValues
+            div(class="row")
+            if val.sensor_value < .5
+                button(class="btn-success col-sm-4 text-center w-25 border border-dark") #{val.id}
+            else
+                button(class="btn-danger col-sm-4 text-center w-25 border border-dark") #{val.id}               
+            p #{val.sensor_value}
+            
+    else
+        p Choose a location to examine machines
+        div(class="row")
+            a(href='/operations/1' class="btn-primary p-2 col-sm-4 text-center w-25 border border-dark") Boston
+            a(href='/operations/2' class="btn-primary p-2 col-sm-4 text-center w-25 border border-dark") New York
+            a(href='/operations/3' class="btn-primary p-2 col-sm-4 text-center w-25 border border-dark") Denver
+        br
+        div(class="row")
+            a(href='/operations/4' class="btn-primary p-2 col-sm-4 text-center w-25 border border-dark") Atlanta
+            a(href='/operations/5' class="btn-primary p-2 col-sm-4 text-center w-25 border border-dark") Seattle
+        br
+        
