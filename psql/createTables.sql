@@ -10,14 +10,14 @@ CREATE TABLE machine (
 	machine_id varchar(5) PRIMARY KEY
 );
 
-CREATE TABLE machine_lookup (
-	machine_id varchar(5) REFERENCES machine(machine_id),
-	location_id serial REFERENCES office_location(location_id)
-);
-
 CREATE TABLE sensor (
 	sensor_type varchar(40),
 	sensor_id varchar(10) PRIMARY KEY
+);
+
+CREATE TABLE machine_lookup (
+	machine_id varchar(5) REFERENCES machine(machine_id),
+	location_id serial REFERENCES office_location(location_id)
 );
 
 CREATE TABLE sensor_lookup (

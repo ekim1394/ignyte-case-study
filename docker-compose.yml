@@ -2,9 +2,9 @@ pg-ignyte:
   container_name: pg-ignyte-2
   image: postgres:alpine
   ports:
-  - "5431:5432"
+  - "5432:5432"
   volumes:
-    - C:\Users\simpl\Documents\Data_Case_Study\data_files:/data
+    - ~/data_files:/data
   environment:
     - DEBUG=false
     - DB_PASS= password
