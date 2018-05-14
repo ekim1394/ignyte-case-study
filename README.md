@@ -18,6 +18,7 @@ You can find sql scripts in the psql folder. They will set up the tables and sto
 5. machine_lookup
 6. sensor_lookup
 
+Then run masterTable.sql -> populateTables.sql -> GenerateSensor.sql & RefreshMaster.sql
 
 data_vis has node + express dashboard set up. You can run with the following commands
 ```
